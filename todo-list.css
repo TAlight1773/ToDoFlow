@@ -1,0 +1,790 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+
+
+body{
+    background-image: url(https://images.pexels.com/photos/19196727/pexels-photo-19196727.jpeg?cs=srgb&dl=pexels-njeromin-19196727.jpg&fm=jpg);
+    background-size: cover;
+}
+
+input { 
+    background: white;           
+    height: 40px;      
+    width: 230px;
+    font: inherit;    
+    border-radius: 10px;
+    border-style: solid;
+    margin-top: 10px;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+
+} 
+
+input.warning::placeholder{ 
+    color: rgba(255, 0, 0, 0.8);
+} 
+
+
+
+.head-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 14px
+}
+
+.big-box{
+    padding-top: 100px;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: flex-start;
+    
+}
+
+.main-list{
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    animation-name: list-animation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+
+.list-title-box{
+    height: auto;
+    display: flex;
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+}
+
+.list-top{
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+    width: 350px;
+    gap: 10px;
+}
+
+
+.delete-list{
+    margin-top: 1px;
+}
+
+
+#list-title{
+    width: 380px;
+    overflow-wrap: anywhere;
+}
+
+.rename-list{
+    margin-top: 2px;
+}
+
+.sub-list-title{
+    display: flex;
+    flex-direction: row;
+}
+
+.sub-list-text{
+    overflow-wrap: anywhere;
+    margin-left: 10px;
+    width: 280px;
+    height: auto;
+}
+
+.sub-list-box{
+    width: 300px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    animation-name: list-animation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    border: 2px rgba(0, 0, 0, 0) solid;
+    
+}
+
+.sub-list-box:hover{
+    background-color: rgba(240, 240, 240, 0.6);
+}
+
+
+.sub-list-tag-box{
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    flex-wrap: wrap;
+}
+
+.sub-list-tag{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-top: 10px;
+    margin-right: 10px;
+    opacity: 1;
+}
+
+.sub-list-tag img{
+    display: none;
+    transform: translateY(13%);
+}
+
+.sub-list-tag:hover{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sub-list-tag:hover img{
+    display: inline;
+}
+
+.input-tag-button{
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 12px;
+    margin-right: 10px;
+}
+
+.input-type-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+input[type="color"] {
+    width: 35px;  /* 输入框整体大小 */
+    height: 35px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.input-tag-color{
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.input-tag-text{
+    height: 28px;
+    width: 60px;
+    border-radius: 0px;
+}
+
+.add-new-tag{
+    display: flex;
+    height: 25px;
+    width: 40px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 136, 223);
+    color: white;
+    margin-top: 10px;
+}
+
+
+.add-new-main-list {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    height: 25px;
+    padding-left: 20px;
+    backdrop-filter: blur(2px);
+}
+
+.add-new-main-list:hover {
+  background-color: rgba(235, 235, 235, 0.5);
+}
+
+#choose.add-new-main-list {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+    height: 115px;
+    padding-left: 20px;
+}
+
+#unchoose.add-new-main-list .input-main-list-name{
+    display: none;
+}
+
+#choose.add-new-main-list p{
+    display: none;
+    
+}
+
+.input-main-list-button-box{
+    display: flex;
+    flex-direction: row;
+    margin-top:10px ;
+}
+
+.input-main-list-button , .menu-tag-button{
+    display: flex;
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 136, 223);
+    color: white;
+    margin-top: 10px;
+}
+
+.input-main-list-button:hover,.menu-tag-button:hover,.rename-list-button-box:hover,.rename-task-button-box:hover{
+    background-color: rgb(0, 111, 214);
+}
+
+.input-main-list-cancel{
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 3px;
+    opacity: 0.7;
+}
+
+#insert-new-list-here{
+    display: none;
+}
+
+#unchoose.add-task-box .input-main-list-name{
+    display: none;
+}
+
+#choose.add-task-box p{
+    display: none;
+}
+
+
+.sub-list-kebab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3px;
+    border-radius: 90px;
+    width: 35px;
+    height: 30px;
+}
+
+.sub-list-check{
+    width: 24px;
+    height: 20px;
+    background-color: rgba(30, 255, 0, 0);
+    border-style: solid;
+    border-radius: 100px;
+    border-color: rgba(0, 0, 0, 0.8);
+    border-width: 2px;
+}
+
+.c-icon-l,.c-icon-r{
+    display: none;
+}
+
+#check.sub-list-box .sub-list-text,#check.sub-list-box .sub-list-tag{
+    opacity: 0.6;
+}
+
+
+#check.sub-list-box .sub-list-check{
+    background-color: rgb(41, 185, 22);
+    border-color: rgba(37, 255, 8, 0);
+    animation-name: check-animation;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+}
+
+#check.sub-list-box .c-icon-r{
+    position: absolute;
+    display: block;
+    transform: 
+    rotate(-50deg)
+    translateX(-4px)
+    translateY(10px)
+    ;
+    width: 14px;
+    height: 3px;
+    border-radius: 15px;
+    background-color: white;
+    
+}
+
+#check.sub-list-box .c-icon-l{
+    position: absolute;
+    display: block;
+    transform: 
+    rotate(50deg)
+    translateX(11px)
+    translateY(5px)
+    ;
+    width: 7px;
+    height: 3px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+@keyframes check-animation{
+    0% {scale:1;
+    transform: rotate(0deg);}
+    50% {scale:1.1;}
+    100%{scale:1;
+    transform: rotate(0deg);}
+}
+
+
+
+.sub-list-kebab#s-true,.sub-list-kebab:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.kebab-menu{
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    position: fixed;
+    transform: translate(35%,70%);
+    overflow: hidden;
+    font-size: 17px;
+    display: none;
+    animation-name: kebab-animation;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+}
+
+.kebab-choice{
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.kebab-choice:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+.toast-box{
+    height: 50px;
+    width: 260px;
+    background-color: rgb(255, 56, 56);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    border-radius: 10px;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateX(-50%);
+    opacity: 0.8;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.toast-box#a-true{
+    animation-name: toast-animation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+.toast-text-box{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.progress-bar{
+    width: 300px;
+    height: 15px;
+    background-color: white;
+    margin-top: 5px;
+    left: 0px;
+    position: relative;
+}
+
+.toast-box#a-true .progress-bar{
+    animation-name: bar-animation;
+    animation-duration: 2s;
+}
+
+
+@keyframes toast-animation{
+    0% { bottom:-50px}
+    20% { bottom:30px;}
+    80% { bottom:30px;}
+    100% { bottom:-50px}
+}
+
+@keyframes bar-animation {
+    0% {left:0px;}
+    100% {left:-300px;}
+}
+
+@keyframes list-animation{
+    0% {transform: translateY(25px);
+    opacity: 0;}
+    100% {transform: translateY(0px);
+    opacity: 1;}
+}
+
+@keyframes kebab-animation{
+    0% {transform: translate(35%,50%);
+    opacity: 0;}
+    100% {transform: translate(35%,70%);
+    opacity: 1;}
+}
+
+
+
+
+.tag-menu{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%)
+    translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    display: none;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 18px;
+    gap: 12px;
+    animation-name: menu-animation;
+    animation-duration: 0.35s;
+    animation-timing-function: ease-out;
+    
+}
+
+#tag-name{
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#color-hex{
+    border: 1px rgba(0, 0, 0, 0.7) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.color-bar{
+    margin-left: -10px;
+    width: 380px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin-bottom: -20px;
+
+}
+
+.color-box{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: red;
+    border: 3px rgba(0, 0, 255, 0) solid;
+    opacity: 0.8;
+}
+
+.color-box:hover{
+    opacity: 1;
+}
+
+.color-box#c-true{
+    border: 3px rgb(27, 117, 252) solid;
+}
+
+.menu-tag-cancel{
+    position: fixed;
+    right: 30px;
+}
+
+
+@keyframes menu-animation{
+    0% {transform: translate(-50%,-25%);
+    left: 50%;
+    opacity: 0;}
+    100% {transform: translate(-50%-50%);
+    left: 50%;
+    opacity: 1;}
+}
+
+.effect{
+    position: absolute;
+    display: block;
+    background-color: green;
+    width: 10px;
+    height: 3px;
+    opacity: 0;
+}
+
+.e-1{
+    transform: translate(26px,8px);
+}
+#check.sub-list-box .e-1{
+    animation-name: e-1;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+@keyframes e-1{
+    0% {
+    transform: translate(22px,8px);
+    opacity: 1;}
+    100% {transform: translate(26px,8px);
+    opacity: 0;}
+}
+
+.e-2{
+    transform: translate(5px,30px)
+    rotate(90deg);
+}
+#check.sub-list-box .e-2{
+    animation-name: e-2;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+@keyframes e-2{
+    0% {
+    transform: translate(5px,25px) rotate(90deg);
+    opacity: 1;}
+    100% {
+    transform: translate(5px,30px) rotate(90deg);
+    opacity: 0;}
+}
+
+
+.e-3{
+    transform: translate(-16px,8px);
+}
+#check.sub-list-box .e-3{
+    animation-name: e-3;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+@keyframes e-3{
+    0% {transform: translate(-11px,8px);
+    opacity: 1;}
+    100% {transform: translate(-16px,8px);
+    opacity: 0;}
+}
+
+.e-4{
+    transform: translate(5px,-13px)
+    rotate(90deg);
+}
+#check.sub-list-box .e-4{
+    animation-name: e-4;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+}
+@keyframes e-4{
+     0% {
+    transform: translate(5px,-8px) rotate(90deg);
+    opacity: 1;}
+    100% {
+    transform: translate(5px,-13px) rotate(90deg);
+    opacity: 0;}
+}
+
+.e-5,.e-6,.e-7,.e-8{
+    width: 7px;
+}
+
+.e-5{
+    transform: translate(20px,-7px)
+    rotate(-45deg);
+}
+#check.sub-list-box .e-5{
+    animation-name: e-5;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes e-5{
+     0% {
+    transform: translate(18px,-5px) rotate(-45deg);
+    opacity: 1;}
+    100% {
+    transform: translate(20px,-7px) rotate(-45deg);
+    opacity: 0;}
+}
+
+.e-6{
+    transform: translate(21px,24px)
+    rotate(45deg);
+}
+#check.sub-list-box .e-6{
+    animation-name: e-6;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes e-6{
+     0% {
+    transform: translate(19px,22px) rotate(45deg);
+    opacity: 1;}
+    100% {
+    transform: translate(21px,24px) rotate(45deg);
+    opacity: 0;}
+}
+
+.e-7{
+    transform: translate(-8px,24px)
+    rotate(-45deg);
+}
+#check.sub-list-box .e-7{
+    animation-name: e-7;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes e-7{
+     0% {
+    transform: translate(-6px,22px) rotate(-45deg);
+    opacity: 1;}
+    100% {
+    transform: translate(-8px,24px) rotate(-45deg);
+    opacity: 0;}
+}
+
+.e-8{
+    transform: translate(-8px,-7px)
+    rotate(45deg);
+}
+#check.sub-list-box .e-8{
+    animation-name: e-8;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+}
+@keyframes e-8{
+     0% {
+    transform: translate(-6px,-5px) rotate(45deg);
+    opacity: 1;}
+    100% {
+    transform: translate(-8px,-7px) rotate(45deg);
+    opacity: 0;}
+}
+
+.rename-main-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    display: none;
+}
+
+.new-rename-task{
+    width: 120px;
+    height: 40px;
+    margin-top: 0px;
+    font-size: 18px;
+}
+
+.rename-task-button-box{
+    display: flex;
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 136, 223);
+    color: white;
+    font-size: 16px;
+}
+
+.rename-task-cancel{
+    margin-top: 2px;
+    margin-left: 40px;
+    opacity: 0.7;
+}
+
+.rename-list-main-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 13px;
+    display: none;
+}
+
+.new-rename-list{
+    width: 200px;
+    height: 40px;
+    margin-top: 0px;
+    font-size: 18px;
+    
+}
+
+.rename-list-button-box{
+    display: flex;
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 136, 223);
+    color: white;
+    font-size: 16px;
+}
+
+.rename-list-cancel{
+    margin-left: 15px;
+    opacity: 0.7;
+}
+
+#hex-warning{
+    display: none;
+}

@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+  color: #ffffff;
+  background: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+.overlay {
+  background: linear-gradient(to bottom right, rgba(247, 247, 247, 0.4), rgba(150, 150, 150, 0.4));
+  backdrop-filter: blur(4px);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background-color: #053644;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+header p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+nav a {
+  color: #053644;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+a {
+  color: #a0eec0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+.content {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-button {
+  background-color: #053644;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #074b5e;
+}

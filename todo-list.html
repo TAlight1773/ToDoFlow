@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDolist</title>
+    <link rel="stylesheet" href="todo-list.css">
+</head>
+<body>
+    <header>
+        <div class="head-text">
+            <h1>ToDoFlow</h1>
+        </div>
+    </header>
+
+    <div class="big-box" id="big-box">
+
+          
+        <div id="insert-new-list-here"></div>
+        
+        <div class="add-new-main-list" id="unchoose">
+            <p onclick="input_new_main_list(this)">+ Add new list</p>
+            <div class="input-main-list-name">
+                <input type="text" id="new-list-name" placeholder="Title" class="no-warning">
+                <div class="input-main-list-button-box">
+                    <div class="input-main-list-button" onclick="add_new_main_list(this)">
+                        <label>Add list</label>
+                    </div>
+                    <div class="input-main-list-cancel" onclick="input_new_main_list(this)">
+                        <img height= 16px src="https://cdn-icons-png.flaticon.com/512/75/75519.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="tag-menu">
+        <p>Tag name</p>
+        <p id="hex-warning" style="color: red;">Please enter a valid hex color</p>
+        <div class="input-box">
+            <input type="text" id="tag-name" placeholder="Tag">
+            <input type="text" id="color-hex" placeholder="Color" value="#baf3db" onclick="reset_color()">
+        </div>
+        <p>Choose a color</p>
+        <div class="color-bar">
+            <div style="background-color: #baf3db;" class="color-box" id="c-true" onclick="choose_color(this)"></div>
+            <div style="background-color: #f5e989;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #fce4a6;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #ffd5d2;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #eed7fc;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #4bce97;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #eed12b;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #fca700;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #f87168;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #c97cf4;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #1f845a;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #946f00;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #bd5b00;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #c9372c;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #964ac0;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #cfe1fd;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #c6edfb;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #d3f1a7;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #e774bb;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #8c8f97;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #1868db;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #227d9b;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #5b7f24;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #ae4787;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+            <div style="background-color: #6b6e76;" class="color-box" id="c-false" onclick="choose_color(this)"></div>
+        </div>
+        <br>
+        <hr>
+        <div class="menu-tag-button" onclick="add_tag_to_list(this)">
+            <label>Add tag</label>
+        </div>
+        <div class="menu-tag-cancel" onclick="close_tag_menu(this)">
+            <img height= 16px src="https://cdn-icons-png.flaticon.com/512/75/75519.png" alt="">
+        </div>
+    </div>
+
+
+    <div class="toast-box" id="a-false">
+        <div class="toast-text-box">
+        <img width="20px" height="20px" src="https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/red-alert-icon.png" alt="">
+        <label>Content cannot be empty</label>
+        <img width="20px" height="20px" src="https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/red-alert-icon.png" alt="">
+        </div>
+        <div class="progress-bar"></div>
+    </div>
+
+    
+    <script src="todo-list.js"></script>
+</body>
+</html>
