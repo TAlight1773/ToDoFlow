@@ -9,7 +9,9 @@
 
 body{
     background-image: url(https://images.pexels.com/photos/19196727/pexels-photo-19196727.jpeg?cs=srgb&dl=pexels-njeromin-19196727.jpg&fm=jpg);
+    background-position: center;
     background-size: cover;
+    background-attachment: fixed
 }
 
 input { 
