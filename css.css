@@ -8,7 +8,7 @@ body {
 }
 
 .overlay {
-  background: linear-gradient(to bottom right, rgba(247, 247, 247, 0.4), rgba(150, 150, 150, 0.4));
+  background: linear-gradient(to bottom right, rgba(196, 196, 195, 0.4), rgba(150, 150, 150, 0.4));
   backdrop-filter: blur(4px);
   position: absolute;
   top: 0; left: 0;
