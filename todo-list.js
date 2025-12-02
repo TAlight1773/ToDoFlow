@@ -111,7 +111,11 @@ function add_new_task(el){
     }
 
     task_box.insertAdjacentHTML("beforebegin", `
+    <div class="priority" id="0">
        <div class="sub-list-box" id="uncheck">
+       <div class="p-tag">
+            <img height= 30px src="https://img.icons8.com/ios_filled/512/FFFFFF/bookmark-ribbon.png" alt="">
+        </div>
             <div class="sub-list-title">
                 <div class="sub-list-check" onclick="check_list(this)">
                     <div class=c-icon-r></div>
@@ -139,7 +143,15 @@ function add_new_task(el){
                         </div>
                         <div class="kebab-tag kebab-choice" onclick="add_tag_menu(this)">
                             <img height="20px" width="20px" src="https://cdn-icons-png.flaticon.com/512/876/876770.png" alt="">
-                            <p>Add tag</p>
+                            <p>Add Tag</p>
+                        </div>
+                        <div class="kebab-tag kebab-choice" onclick="set_priority(this)">
+                            <img height="20px" width="20px" src="https://static.thenounproject.com/png/2456640-200.png" alt="">
+                            <p>Priority</p>
+                        </div>
+                        <div class="kebab-tag kebab-choice" onclick="set_due_date(this)">
+                            <img height="20px" width="20px" src="https://marketplace.canva.com/BMGvE/MAE5CWBMGvE/1/tl/canva-date-icon-MAE5CWBMGvE.png" alt="">
+                            <p>Due Date</p>
                         </div>
                         <div class="kebab-del kebab-choice" onclick="delete_task(this)">
                             <img height="20px" width="20px" src="https://cdn-icons-png.flaticon.com/512/3405/3405244.png" alt="">
@@ -166,7 +178,10 @@ function add_new_task(el){
 
             <div class="sub-list-tag-box"></div>
 
+            <div class="due-date-box" onclick="remove_due_date(this)">
+            </div>
         </div>
+    </div>
         `)  
     input.value = ""
     input_new_task(el)
@@ -261,6 +276,7 @@ function add_tag_menu(el){
     parent = el.closest(".sub-list-box")
     sub_list_need_tag = parent.querySelector(".sub-list-tag-box")
     open_tag_menu()
+    close_p_menu()
 }
 
 function add_tag_to_list(){
@@ -400,13 +416,11 @@ function add_name_to_list(el){
 
 }
 
-
 function delete_tag(el){
     let parent = el.closest(".sub-list-tag")
     parent.remove()
 }
 
-get_html()
 
 function save_html(){
     let html_string = document.body.innerHTML
@@ -430,3 +444,199 @@ observer.observe(document.body,{
   subtree: true,
   characterData: true
 });
+
+
+
+
+function priority_rate(el){
+    
+    parent = el.closest(".main-list")
+    let task_list = parent.getElementsByClassName("priority")
+    let task_box = parent.querySelector(".insert-task")
+    
+    rate = 3
+    let list_array = []
+
+    while(rate > -1){
+        list_array.push(...pick_rate(rate,task_list))
+        rate -= 1
+    }
+
+    let list_length = list_array.length
+    console.log(list_length)
+    
+    for (let i = list_length - 1; i >= 0; i--){
+        task_list[i].remove()
+    }
+
+    for (let i = 0; i < list_array.length; i++) {
+        task_box.insertAdjacentHTML("beforebegin",list_array[i])
+    }
+
+}
+
+function pick_rate(rate,task_list){
+    let list_array = []
+
+    for (let i = 0; i < task_list.length; i++) {
+        if(task_list[i].id == rate){
+            list_array.push(task_list[i].outerHTML)
+        }
+    }
+
+    if(list_array != []){
+        return list_array
+    }
+
+}
+
+let task_need_p_tag
+
+function set_priority(el){
+    parent = el.closest(".priority")
+    task_need_p_tag = parent
+    open_p_menu()
+    close_tag_menu()
+}
+
+function set_p_tag(){
+    let p_select = document.getElementById("p-tag-slect")
+    task_need_p_tag.id = p_select.value
+    priority_rate(task_need_p_tag)
+    close_p_menu()
+    
+}
+
+function open_p_menu(){
+    let p_menu = document.getElementsByClassName("p-tag-menu")[0]
+    p_menu.style.display = "flex"
+}
+
+function close_p_menu(){
+    let p_select = document.getElementById("p-tag-slect")
+    let p_menu = document.getElementsByClassName("p-tag-menu")[0]
+    p_menu.style.display = "none"
+    p_select.value = "0"
+}
+
+let task_need_date 
+
+function set_due_date(el){
+    let parent = el.closest(".priority")
+    task_need_date = parent.querySelector(".due-date-box")
+    open_date_menu()
+}
+
+function set_date(){
+    let input_date = document.getElementById("input-date")
+
+    if (input_date.value == ""){
+        let toast = document.getElementsByClassName("toast-box")[0]
+        toast.id = "a-true"
+        toast.addEventListener("animationend", reset_animation)
+        return
+    }
+
+    task_need_date.innerHTML = input_date.value
+    task_need_date.style.display = "block"
+    close_date_menu()
+}
+
+function open_date_menu(){
+    let menu = document.getElementsByClassName("date-menu")[0]
+    menu.style.display = "flex"
+}
+
+function close_date_menu(){
+    let menu = document.getElementsByClassName("date-menu")[0]
+    menu.style.display = "none"
+
+}
+
+function remove_due_date(el){
+    el.style.display = "none"
+    el.innerHTML = ""
+}
+
+function add_new_warning_box(text){
+    let contianer = document.getElementsByClassName("warning-container")[0]
+    contianer.insertAdjacentHTML("beforeend", `<div class="warning-box">
+            <div class="warning-color"></div>
+            <img height="30px" src="https://cdn-icons-png.freepik.com/512/6897/6897039.png" alt="">
+            <div class="w-text-box">
+                <p class="warning">Notification</p>
+                <p class="warning-text">`+text+`</p>
+            </div>
+            <img class="warning-cancel" height= 14px src="https://cdn-icons-png.flaticon.com/512/75/75519.png" alt="" onclick="cancel_warning(this)">
+        </div>`)
+}
+
+function add_new_high_warning_box(text){
+    let contianer = document.getElementsByClassName("warning-container")[0]
+    contianer.insertAdjacentHTML("beforeend", `<div class="warning-box">
+            <div class="warning-color-high"></div>
+            <img height="30px" src="https://uxwing.com/wp-content/themes/uxwing/download/signs-and-symbols/red-alert-icon.png" alt="">
+            <div class="w-text-box">
+                <p class="warning">Notification</p>
+                <p class="warning-text">`+text+`</p>
+            </div>
+            <img class="warning-cancel" height= 14px src="https://cdn-icons-png.flaticon.com/512/75/75519.png" alt="" onclick="cancel_warning(this)">
+        </div>`)
+}
+
+function cancel_warning(el){
+    parent = el.closest(".warning-box")
+    parent.remove()
+}
+
+function defind_warning(){
+    let task_list = document.getElementsByClassName("priority")
+    for(let i = 0;i < task_list.length;i++){
+        let task = task_list[i].querySelector(".due-date-box")
+        let date = calculate_date(task.innerHTML)
+        let task_name = task_list[i].querySelector(".sub-list-name")
+        let check = task_list[i].querySelector(".sub-list-box")
+        if(check.id == "check"){
+            task.style.color = "#000000ff"
+        }
+        else if(date < 0){
+            task.style.color = "#ff0000"
+            add_new_high_warning_box("<b>"+ task_name.innerHTML + "</b>"+  " is over the due date!!!")
+        }
+        else if(date == 0){
+            task.style.color = "#f7b02dff"
+            add_new_warning_box("<b>"+ task_name.innerHTML  + "</b>" + " is due Today!!!")
+        }
+        else if(date <= 3){
+            task.style.color = "#f7b02dff"
+            add_new_warning_box("<b>"+ task_name.innerHTML  + "</b>" + " have only " + date + " day left!")
+        }
+        else{
+            task.style.color = "#000000ff"
+        }
+
+}
+}
+
+function calculate_date(date){
+    let today = new Date()
+    let target = new Date(date)
+
+    let t1 = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+    let t2 = new Date(target.getFullYear(), target.getMonth(), target.getDate())
+
+    let diff = t2 - t1
+    let diff_days = diff / (1000 * 60 * 60 * 24)
+
+    return diff_days
+    
+}
+
+function clear_nofi(){
+    let contianer = document.getElementsByClassName("warning-container")[0]
+    contianer.innerHTML = ""
+}
+
+get_html()
+clear_nofi()
+defind_warning()

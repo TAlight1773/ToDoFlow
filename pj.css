@@ -47,6 +47,7 @@ form{
 
 header a{
   position: absolute;
+  transform: rotate(90deg);
   left: 50px;
 }
 
